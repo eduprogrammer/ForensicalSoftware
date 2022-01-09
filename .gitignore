@@ -1,0 +1,7 @@
+.vs/
+Debug/
+*.tlog
+*.log
+*.bmp
+*.ico
+*.txt
