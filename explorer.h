@@ -42,6 +42,10 @@ namespace EduardoProgramador
 
 			METHOD saveBrowse();
 
+			ONCE openPage(LPCWSTR szPage);
+
+			ONCE dlg(LPCWSTR szTitle, LPCWSTR szMsg);
+
 			virtual ONCE OnOperationOpenStart(LPSTR szFile, HWND hWnd); 
 
 			virtual ONCE OnOperationSaveStart(LPSTR szFile, HWND hWnd);

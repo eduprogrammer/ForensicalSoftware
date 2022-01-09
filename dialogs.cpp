@@ -30,11 +30,15 @@ INT_PTR CALLBACK dlgProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 	{
 
 	case WM_INITDIALOG:
+
 		startIconImg(hWnd);
 
 		startBitmapImg(IDB_BITMAP1, GetDlgItem(hWnd, IDC_IMAGE_LOGO), 140, 120);
 		startBitmapImg(IDB_BITMAP2, GetDlgItem(hWnd, IDC_IMAGE_FENIX1), 50, 50);
 		startBitmapImg(IDB_BITMAP2, GetDlgItem(hWnd, IDC_IMAGE_FENIX2), 50, 50);		
+
+		Explorer::Explorer* exp;
+		exp = new Explorer::Explorer(hWnd);
 
 		return (INT_PTR)TRUE;
 
@@ -95,12 +99,27 @@ INT_PTR CALLBACK dlgProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 		case ID_FILE_EASYENCRYPTION:
 			EndDialog(hWnd, 0);
 			DialogBox(GetModuleHandle(nullptr), MAKEINTRESOURCEW(IDD_DLG_EASY_ENC), hWnd, dlgEasyEnc);
-			break;
+			return TRUE;
 
 		case ID_FILE_EASYDECRYPTION:
 			EndDialog(hWnd, 0);
 			DialogBox(GetModuleHandle(nullptr), MAKEINTRESOURCEW(IDD_DLG_EASY_DEC), hWnd, dlgEasyDec);
-			break;
+			return TRUE;
+
+		case ID_ABOUT_ABOUTFORENSICAL:
+			exp = new Explorer::Explorer(hWnd);
+			exp->dlg(L"About Forensical", L"Forensical is a software that provides Cryptographic routines, written in C++ language and built with own technology, including:\r\n\r\n1. Symmetric Cryptography (AES, DES, etc.);\r\n2. Encryption and Decryption routines;\r\n3. MAC Calculations (HMAC with MD5, SHA-256, etc.).\r\n\r\nCopyright 2021. Eduardo Programador.\r\nAll rights Reserved.");
+			return TRUE;
+
+		case ID_ABOUT_USAGETUTORIAL:	
+			exp = new Explorer::Explorer(hWnd);
+			exp->openPage(L"https://github.com/eduprogrammer/ForensicalSoftware");
+			return TRUE;
+		
+		case ID_ABOUT_DEVELOPERPAGE:			
+			exp = new Explorer::Explorer(hWnd);
+			exp->openPage(L"https://eduardoprogramador.com");
+			return TRUE;
 
 		default:
 			return (INT_PTR)FALSE;
@@ -118,6 +137,8 @@ INT_PTR CALLBACK dlgKeyGen(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 	switch (uMsg)
 	{
 	case WM_INITDIALOG:
+
+		Explorer::Explorer* exp;
 
 		startIconImg(hWnd);
 		startBitmapImg(IDB_BITMAP3, GetDlgItem(hWnd, IDC_IMG_KEY_GEN_BACK), 100, 200);
@@ -244,12 +265,27 @@ INT_PTR CALLBACK dlgKeyGen(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 		case ID_FILE_EASYENCRYPTION:
 			EndDialog(hWnd, 0);
 			DialogBox(GetModuleHandle(nullptr), MAKEINTRESOURCEW(IDD_DLG_EASY_ENC), hWnd, dlgEasyEnc);
-			break;
+			return TRUE;
 
 		case ID_FILE_EASYDECRYPTION:
 			EndDialog(hWnd, 0);
 			DialogBox(GetModuleHandle(nullptr), MAKEINTRESOURCEW(IDD_DLG_EASY_DEC), hWnd, dlgEasyDec);
-			break;
+			return TRUE;
+
+		case ID_ABOUT_ABOUTFORENSICAL:
+			exp = new Explorer::Explorer(hWnd);
+			exp->dlg(L"About Forensical", L"Forensical is a software that provides Cryptographic routines, written in C++ language and built with own technology, including:\r\n\r\n1. Symmetric Cryptography (AES, DES, etc.);\r\n2. Encryption and Decryption routines;\r\n3. MAC Calculations (HMAC with MD5, SHA-256, etc.).\r\n\r\nCopyright 2021. Eduardo Programador.\r\nAll rights Reserved.");
+			return TRUE;
+
+		case ID_ABOUT_USAGETUTORIAL:
+			exp = new Explorer::Explorer(hWnd);
+			exp->openPage(L"https://github.com/eduprogrammer/ForensicalSoftware");
+			return TRUE;
+
+		case ID_ABOUT_DEVELOPERPAGE:
+			exp = new Explorer::Explorer(hWnd);
+			exp->openPage(L"https://eduardoprogramador.com");
+			return TRUE;
 
 		default:
 			return static_cast<INT_PTR>(FALSE);
@@ -268,6 +304,9 @@ INT_PTR CALLBACK dlgKeyRead(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 	{
 
 	case WM_INITDIALOG:
+
+		Explorer::Explorer* exp;
+
 		startIconImg(hWnd);
 		startBitmapImg(IDB_BITMAP4, GetDlgItem(hWnd, IDC_IMG_KEY_READ_BACK), 100, 200);
 
@@ -348,12 +387,27 @@ INT_PTR CALLBACK dlgKeyRead(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 		case ID_FILE_EASYENCRYPTION:
 			EndDialog(hWnd, 0);
 			DialogBox(GetModuleHandle(nullptr), MAKEINTRESOURCEW(IDD_DLG_EASY_ENC), hWnd, dlgEasyEnc);
-			break;
+			return TRUE;
 
 		case ID_FILE_EASYDECRYPTION:
 			EndDialog(hWnd, 0);
 			DialogBox(GetModuleHandle(nullptr), MAKEINTRESOURCEW(IDD_DLG_EASY_DEC), hWnd, dlgEasyDec);
-			break;
+			return TRUE;
+
+		case ID_ABOUT_ABOUTFORENSICAL:
+			exp = new Explorer::Explorer(hWnd);
+			exp->dlg(L"About Forensical", L"Forensical is a software that provides Cryptographic routines, written in C++ language and built with own technology, including:\r\n\r\n1. Symmetric Cryptography (AES, DES, etc.);\r\n2. Encryption and Decryption routines;\r\n3. MAC Calculations (HMAC with MD5, SHA-256, etc.).\r\n\r\nCopyright 2021. Eduardo Programador.\r\nAll rights Reserved.");
+			return TRUE;
+
+		case ID_ABOUT_USAGETUTORIAL:
+			exp = new Explorer::Explorer(hWnd);
+			exp->openPage(L"https://github.com/eduprogrammer/ForensicalSoftware");
+			return TRUE;
+
+		case ID_ABOUT_DEVELOPERPAGE:
+			exp = new Explorer::Explorer(hWnd);
+			exp->openPage(L"https://eduardoprogramador.com");
+			return TRUE;
 
 
 		default:
@@ -371,6 +425,9 @@ INT_PTR CALLBACK dlgCharEncrypt(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lPar
 	{
 
 	case WM_INITDIALOG:
+
+		Explorer::Explorer* exp;
+
 		startIconImg(hWnd);
 		startBitmapImg(IDB_BITMAP5, GetDlgItem(hWnd, IDC_BMP_CHAR_ENCRYPT), 100, 70);
 
@@ -435,12 +492,27 @@ INT_PTR CALLBACK dlgCharEncrypt(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lPar
 		case ID_FILE_EASYENCRYPTION:
 			EndDialog(hWnd, 0);
 			DialogBox(GetModuleHandle(nullptr), MAKEINTRESOURCEW(IDD_DLG_EASY_ENC), hWnd, dlgEasyEnc);
-			break;
+			return TRUE;
 
 		case ID_FILE_EASYDECRYPTION:
 			EndDialog(hWnd, 0);
 			DialogBox(GetModuleHandle(nullptr), MAKEINTRESOURCEW(IDD_DLG_EASY_DEC), hWnd, dlgEasyDec);
-			break;
+			return TRUE;
+
+		case ID_ABOUT_ABOUTFORENSICAL:
+			exp = new Explorer::Explorer(hWnd);
+			exp->dlg(L"About Forensical", L"Forensical is a software that provides Cryptographic routines, written in C++ language and built with own technology, including:\r\n\r\n1. Symmetric Cryptography (AES, DES, etc.);\r\n2. Encryption and Decryption routines;\r\n3. MAC Calculations (HMAC with MD5, SHA-256, etc.).\r\n\r\nCopyright 2021. Eduardo Programador.\r\nAll rights Reserved.");
+			return TRUE;
+
+		case ID_ABOUT_USAGETUTORIAL:
+			exp = new Explorer::Explorer(hWnd);
+			exp->openPage(L"https://github.com/eduprogrammer/ForensicalSoftware");
+			return TRUE;
+
+		case ID_ABOUT_DEVELOPERPAGE:
+			exp = new Explorer::Explorer(hWnd);
+			exp->openPage(L"https://eduardoprogramador.com");
+			return TRUE;
 
 		default:
 			return FALSE;
@@ -457,6 +529,9 @@ INT_PTR CALLBACK dlgFileEncrypt(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lPar
 	{
 
 	case WM_INITDIALOG:
+
+		Explorer::Explorer* exp;
+
 		startIconImg(hWnd);
 		startBitmapImg(IDB_BITMAP6, GetDlgItem(hWnd, IDC_BMP_FILE_ENCRYPT), 100, 170);
 
@@ -544,12 +619,27 @@ INT_PTR CALLBACK dlgFileEncrypt(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lPar
 		case ID_FILE_EASYENCRYPTION:
 			EndDialog(hWnd, 0);
 			DialogBox(GetModuleHandle(nullptr), MAKEINTRESOURCEW(IDD_DLG_EASY_ENC), hWnd, dlgEasyEnc);
-			break;
+			return TRUE;
 
 		case ID_FILE_EASYDECRYPTION:
 			EndDialog(hWnd, 0);
 			DialogBox(GetModuleHandle(nullptr), MAKEINTRESOURCEW(IDD_DLG_EASY_DEC), hWnd, dlgEasyDec);
-			break;
+			return TRUE;
+
+		case ID_ABOUT_ABOUTFORENSICAL:
+			exp = new Explorer::Explorer(hWnd);
+			exp->dlg(L"About Forensical", L"Forensical is a software that provides Cryptographic routines, written in C++ language and built with own technology, including:\r\n\r\n1. Symmetric Cryptography (AES, DES, etc.);\r\n2. Encryption and Decryption routines;\r\n3. MAC Calculations (HMAC with MD5, SHA-256, etc.).\r\n\r\nCopyright 2021. Eduardo Programador.\r\nAll rights Reserved.");
+			return TRUE;
+
+		case ID_ABOUT_USAGETUTORIAL:
+			exp = new Explorer::Explorer(hWnd);
+			exp->openPage(L"https://github.com/eduprogrammer/ForensicalSoftware");
+			return TRUE;
+
+		case ID_ABOUT_DEVELOPERPAGE:
+			exp = new Explorer::Explorer(hWnd);
+			exp->openPage(L"https://eduardoprogramador.com");
+			return TRUE;
 
 		default:
 			return FALSE;
@@ -567,6 +657,9 @@ INT_PTR CALLBACK dlgPassEncrypt(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lPar
 	{
 
 	case WM_INITDIALOG:
+
+		Explorer::Explorer* exp;
+
 		startIconImg(hWnd);
 		startBitmapImg(IDB_BITMAP7, GetDlgItem(hWnd, IDC_IMG_PASS_ENC), 150, 40);
 
@@ -637,12 +730,27 @@ INT_PTR CALLBACK dlgPassEncrypt(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lPar
 		case ID_FILE_EASYENCRYPTION:
 			EndDialog(hWnd, 0);
 			DialogBox(GetModuleHandle(nullptr), MAKEINTRESOURCEW(IDD_DLG_EASY_ENC), hWnd, dlgEasyEnc);
-			break;
+			return TRUE;
 
 		case ID_FILE_EASYDECRYPTION:
 			EndDialog(hWnd, 0);
 			DialogBox(GetModuleHandle(nullptr), MAKEINTRESOURCEW(IDD_DLG_EASY_DEC), hWnd, dlgEasyDec);
-			break;
+			return TRUE;
+
+		case ID_ABOUT_ABOUTFORENSICAL:
+			exp = new Explorer::Explorer(hWnd);
+			exp->dlg(L"About Forensical", L"Forensical is a software that provides Cryptographic routines, written in C++ language and built with own technology, including:\r\n\r\n1. Symmetric Cryptography (AES, DES, etc.);\r\n2. Encryption and Decryption routines;\r\n3. MAC Calculations (HMAC with MD5, SHA-256, etc.).\r\n\r\nCopyright 2021. Eduardo Programador.\r\nAll rights Reserved.");
+			return TRUE;
+
+		case ID_ABOUT_USAGETUTORIAL:
+			exp = new Explorer::Explorer(hWnd);
+			exp->openPage(L"https://github.com/eduprogrammer/ForensicalSoftware");
+			return TRUE;
+
+		case ID_ABOUT_DEVELOPERPAGE:
+			exp = new Explorer::Explorer(hWnd);
+			exp->openPage(L"https://eduardoprogramador.com");
+			return TRUE;
 
 		case IDC_BTN_PASS_ENC_START:
 			CreateThread(nullptr, 0, passEncrypt, nullptr, 0, 0);
@@ -665,6 +773,9 @@ INT_PTR CALLBACK dlgFileDecrypt(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lPar
 	{
 
 	case WM_INITDIALOG:
+
+		Explorer::Explorer* exp;
+
 		startIconImg(hWnd);
 		startBitmapImg(IDB_BITMAP6, GetDlgItem(hWnd, IDC_BMP_FILE_DECRYPT), 100, 170);
 
@@ -753,12 +864,27 @@ INT_PTR CALLBACK dlgFileDecrypt(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lPar
 		case ID_FILE_EASYENCRYPTION:
 			EndDialog(hWnd, 0);
 			DialogBox(GetModuleHandle(nullptr), MAKEINTRESOURCEW(IDD_DLG_EASY_ENC), hWnd, dlgEasyEnc);
-			break;
+			return TRUE;
 
 		case ID_FILE_EASYDECRYPTION:
 			EndDialog(hWnd, 0);
 			DialogBox(GetModuleHandle(nullptr), MAKEINTRESOURCEW(IDD_DLG_EASY_DEC), hWnd, dlgEasyDec);
-			break;
+			return TRUE;
+
+		case ID_ABOUT_ABOUTFORENSICAL:
+			exp = new Explorer::Explorer(hWnd);
+			exp->dlg(L"About Forensical", L"Forensical is a software that provides Cryptographic routines, written in C++ language and built with own technology, including:\r\n\r\n1. Symmetric Cryptography (AES, DES, etc.);\r\n2. Encryption and Decryption routines;\r\n3. MAC Calculations (HMAC with MD5, SHA-256, etc.).\r\n\r\nCopyright 2021. Eduardo Programador.\r\nAll rights Reserved.");
+			return TRUE;
+
+		case ID_ABOUT_USAGETUTORIAL:
+			exp = new Explorer::Explorer(hWnd);
+			exp->openPage(L"https://github.com/eduprogrammer/ForensicalSoftware");
+			return TRUE;
+
+		case ID_ABOUT_DEVELOPERPAGE:
+			exp = new Explorer::Explorer(hWnd);
+			exp->openPage(L"https://eduardoprogramador.com");
+			return TRUE;
 
 		default:
 			return FALSE;
@@ -776,6 +902,9 @@ INT_PTR CALLBACK dlgPassDecrypt(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lPar
 	{
 
 	case WM_INITDIALOG:
+
+		Explorer::Explorer* exp;
+
 		startIconImg(hWnd);
 		startBitmapImg(IDB_BITMAP7, GetDlgItem(hWnd, IDC_IMG_PASS_DEC), 150, 40);
 
@@ -842,12 +971,27 @@ INT_PTR CALLBACK dlgPassDecrypt(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lPar
 		case ID_FILE_EASYENCRYPTION:
 			EndDialog(hWnd, 0);
 			DialogBox(GetModuleHandle(nullptr), MAKEINTRESOURCEW(IDD_DLG_EASY_ENC), hWnd, dlgEasyEnc);
-			break;
+			return TRUE;
 
 		case ID_FILE_EASYDECRYPTION:
 			EndDialog(hWnd, 0);
 			DialogBox(GetModuleHandle(nullptr), MAKEINTRESOURCEW(IDD_DLG_EASY_DEC), hWnd, dlgEasyDec);
-			break;
+			return TRUE;
+
+		case ID_ABOUT_ABOUTFORENSICAL:
+			exp = new Explorer::Explorer(hWnd);
+			exp->dlg(L"About Forensical", L"Forensical is a software that provides Cryptographic routines, written in C++ language and built with own technology, including:\r\n\r\n1. Symmetric Cryptography (AES, DES, etc.);\r\n2. Encryption and Decryption routines;\r\n3. MAC Calculations (HMAC with MD5, SHA-256, etc.).\r\n\r\nCopyright 2021. Eduardo Programador.\r\nAll rights Reserved.");
+			return TRUE;
+
+		case ID_ABOUT_USAGETUTORIAL:
+			exp = new Explorer::Explorer(hWnd);
+			exp->openPage(L"https://github.com/eduprogrammer/ForensicalSoftware");
+			return TRUE;
+
+		case ID_ABOUT_DEVELOPERPAGE:
+			exp = new Explorer::Explorer(hWnd);
+			exp->openPage(L"https://eduardoprogramador.com");
+			return TRUE;
 
 		case IDC_BTN_PASS_DEC_START:
 			CreateThread(nullptr, 0, passDecrypt, nullptr, 0, 0);
@@ -873,6 +1017,8 @@ INT_PTR CALLBACK dlgHmac(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 		
 
 	case WM_INITDIALOG:		
+
+		Explorer::Explorer* exp;
 						
 		HWND hBmp;
 		hBmp = GetDlgItem(hWnd, IDC_BMP_HMAC_BACK);
@@ -950,12 +1096,27 @@ INT_PTR CALLBACK dlgHmac(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 		case ID_FILE_EASYENCRYPTION:
 			EndDialog(hWnd, 0);
 			DialogBox(GetModuleHandle(nullptr), MAKEINTRESOURCEW(IDD_DLG_EASY_ENC), hWnd, dlgEasyEnc);
-			break;
+			return TRUE;
 
 		case ID_FILE_EASYDECRYPTION:
 			EndDialog(hWnd, 0);
 			DialogBox(GetModuleHandle(nullptr), MAKEINTRESOURCEW(IDD_DLG_EASY_DEC), hWnd, dlgEasyDec);
-			break;
+			return TRUE;
+
+		case ID_ABOUT_ABOUTFORENSICAL:
+			exp = new Explorer::Explorer(hWnd);
+			exp->dlg(L"About Forensical", L"Forensical is a software that provides Cryptographic routines, written in C++ language and built with own technology, including:\r\n\r\n1. Symmetric Cryptography (AES, DES, etc.);\r\n2. Encryption and Decryption routines;\r\n3. MAC Calculations (HMAC with MD5, SHA-256, etc.).\r\n\r\nCopyright 2021. Eduardo Programador.\r\nAll rights Reserved.");
+			return TRUE;
+
+		case ID_ABOUT_USAGETUTORIAL:
+			exp = new Explorer::Explorer(hWnd);
+			exp->openPage(L"https://github.com/eduprogrammer/ForensicalSoftware");
+			return TRUE;
+
+		case ID_ABOUT_DEVELOPERPAGE:
+			exp = new Explorer::Explorer(hWnd);
+			exp->openPage(L"https://eduardoprogramador.com");
+			return TRUE;
 
 		case IDC_BTN_HMAC_CALCULATE:
 
@@ -1025,6 +1186,8 @@ INT_PTR CALLBACK dlgEasyEnc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 
 	case WM_INITDIALOG:
 
+		Explorer::Explorer* exp;
+
 		HWND hBitmap, hWait;
 		hBitmap = GetDlgItem(hWnd, IDC_BMP_EASY_ENC);
 		hWait = GetDlgItem(hWnd, IDC_STATIC_EASY_ENC);
@@ -1081,7 +1244,22 @@ INT_PTR CALLBACK dlgEasyEnc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 		case ID_FILE_EASYDECRYPTION:
 			EndDialog(hWnd, 0);
 			DialogBox(GetModuleHandle(nullptr), MAKEINTRESOURCEW(IDD_DLG_EASY_DEC), hWnd, dlgEasyDec);
-			break;
+			return TRUE;
+
+		case ID_ABOUT_ABOUTFORENSICAL:
+			exp = new Explorer::Explorer(hWnd);
+			exp->dlg(L"About Forensical", L"Forensical is a software that provides Cryptographic routines, written in C++ language and built with own technology, including:\r\n\r\n1. Symmetric Cryptography (AES, DES, etc.);\r\n2. Encryption and Decryption routines;\r\n3. MAC Calculations (HMAC with MD5, SHA-256, etc.).\r\n\r\nCopyright 2021. Eduardo Programador.\r\nAll rights Reserved.");
+			return TRUE;
+
+		case ID_ABOUT_USAGETUTORIAL:
+			exp = new Explorer::Explorer(hWnd);
+			exp->openPage(L"https://github.com/eduprogrammer/ForensicalSoftware");
+			return TRUE;
+
+		case ID_ABOUT_DEVELOPERPAGE:
+			exp = new Explorer::Explorer(hWnd);
+			exp->openPage(L"https://eduardoprogramador.com");
+			return TRUE;
 		
 
 		case IDC_BTN_EASY_ENC:			
@@ -1109,6 +1287,8 @@ INT_PTR CALLBACK dlgEasyDec(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 	{
 
 	case WM_INITDIALOG:
+
+		Explorer::Explorer* exp;
 
 		HWND hBitmap, hWait;
 		hBitmap = GetDlgItem(hWnd, IDC_BMP_EASY_DEC);
@@ -1166,7 +1346,22 @@ INT_PTR CALLBACK dlgEasyDec(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 		case ID_FILE_EASYENCRYPTION:
 			EndDialog(hWnd, 0);
 			DialogBox(GetModuleHandle(nullptr), MAKEINTRESOURCEW(IDD_DLG_EASY_ENC), hWnd, dlgEasyEnc);
-			break;
+			return TRUE;
+
+		case ID_ABOUT_ABOUTFORENSICAL:
+			exp = new Explorer::Explorer(hWnd);
+			exp->dlg(L"About Forensical", L"Forensical is a software that provides Cryptographic routines, written in C++ language and built with own technology, including:\r\n\r\n1. Symmetric Cryptography (AES, DES, etc.);\r\n2. Encryption and Decryption routines;\r\n3. MAC Calculations (HMAC with MD5, SHA-256, etc.).\r\n\r\nCopyright 2021. Eduardo Programador.\r\nAll rights Reserved.");
+			return TRUE;
+
+		case ID_ABOUT_USAGETUTORIAL:
+			exp = new Explorer::Explorer(hWnd);
+			exp->openPage(L"https://github.com/eduprogrammer/ForensicalSoftware");
+			return TRUE;
+
+		case ID_ABOUT_DEVELOPERPAGE:
+			exp = new Explorer::Explorer(hWnd);
+			exp->openPage(L"https://eduardoprogramador.com");
+			return TRUE;
 
 
 		case IDC_BTN_EASY_DEC:

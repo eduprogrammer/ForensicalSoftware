@@ -20,9 +20,6 @@
 
 using namespace EduardoProgramador;
 
-
-
-
 Explorer::Explorer::Explorer(HWND hWnd)
 {
 	hInit = hWnd;
@@ -77,4 +74,14 @@ METHOD Explorer::Explorer::saveBrowse()
 	{
 		return NO;
 	}
+}
+
+ONCE Explorer::Explorer::openPage(LPCWSTR szPage)
+{
+	ShellExecute(nullptr, L"open", szPage, nullptr, nullptr, SW_NORMAL);
+}
+
+ONCE Explorer::Explorer::dlg(LPCWSTR szTitle, LPCWSTR szMsg)
+{
+	MessageBoxW(hInit,szMsg, szTitle,MB_ICONINFORMATION);
 }
